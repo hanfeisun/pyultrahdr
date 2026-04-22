@@ -2,7 +2,13 @@
 
 **Turn any ordinary SDR image into a real Ultra HDR JPEG — in pure Python, no `libultrahdr` required.**
 
-The output is a standard JPEG on the surface, but on an HDR display (Chrome on Windows 11 24H2, Android 14+, iOS 17.4+, macOS Sonoma, recent Photos/Gallery apps) the highlights punch up to ~1000 nits. On SDR displays it looks like a perfectly normal photo. One file, two worlds.
+| Before — plain SDR | After — Ultra HDR JPEG |
+|---|---|
+| ![SDR](docs/demo_sdr.jpg) | ![Ultra HDR](docs/demo_ultrahdr.jpg) |
+
+> **Open this README in Chrome on an HDR display** (Windows 11 24H2 / macOS Sonoma / Android 14+ / iOS 17.4+) to see the right image light up. On an SDR display the two look identical — that's the point: Ultra HDR degrades gracefully everywhere and pops wherever HDR is available.
+
+The output is a standard JPEG on the surface, but on an HDR display the highlights punch up to ~1000 nits. On SDR displays it looks like a perfectly normal photo. One file, two worlds.
 
 ```
 python sdr_to_hdr.py your_photo.jpg
