@@ -4,14 +4,15 @@
 
 | Before — plain SDR | Gain map | After — Ultra HDR JPEG |
 |---|---|---|
-| ![SDR](docs/demo_sdr.jpg) | ![Gain map](docs/demo_gainmap.jpg) | ![Ultra HDR](docs/demo_ultrahdr.jpg) |
+| ![SDR](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_sdr.jpg) | ![Gain map](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_gainmap.jpg) | ![Ultra HDR](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_ultrahdr.jpg) |
 
 > **Open this README in Chrome on an HDR display** (Windows 11 24H2 / macOS Sonoma / Android 14+ / iOS 17.4+) to see the right image light up. On an SDR display the two look identical — that's the point: Ultra HDR degrades gracefully everywhere and pops wherever HDR is available.
 
 The output is a standard JPEG on the surface, but on an HDR display the highlights punch up to ~1000 nits. On SDR displays it looks like a perfectly normal photo. One file, two worlds.
 
 ```
-python sdr_to_hdr.py your_photo.jpg
+pip install pyultrahdr
+pyultrahdr your_photo.jpg
 # → your_photo_ultrahdr.jpg
 ```
 
@@ -35,18 +36,21 @@ Google's [Ultra HDR format](https://developer.android.com/media/platform/hdr-ima
 ## Install
 
 ```bash
-pip install numpy pillow
+pip install pyultrahdr
 ```
 
-Then grab the script:
+This installs a `pyultrahdr` command. Or skip pip and grab the single-file script:
 
 ```bash
+pip install numpy pillow
 curl -O https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/sdr_to_hdr.py
 ```
 
 ## Usage
 
 ```bash
+pyultrahdr input.png
+# or, with the standalone script:
 python sdr_to_hdr.py input.png
 ```
 
@@ -66,10 +70,10 @@ Batch convert a folder:
 
 ```python
 from pathlib import Path
-import subprocess, sys
+import subprocess
 
 for p in Path('photos').glob('*.jpg'):
-    subprocess.run([sys.executable, 'sdr_to_hdr.py', str(p)])
+    subprocess.run(['pyultrahdr', str(p)])
 ```
 
 ## How to view the result

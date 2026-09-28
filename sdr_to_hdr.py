@@ -10,6 +10,7 @@ Open-source algorithm used here:
   - Assembly: JPEG + XMP (hdrgm:) + MPF APP2 (Multi-Picture Format CIPA DC-007)
 
 Usage:
+  pyultrahdr input.png              (after `pip install pyultrahdr`)
   python sdr_to_hdr.py input.png [--peak-nits 1000] [--sdr-white 203] [--quality 92]
                                  [--save-gainmap]
 """
@@ -19,6 +20,7 @@ import argparse
 import io
 import math
 import struct
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -209,7 +211,8 @@ def build_ultra_hdr(
 # ── CLI ─────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description='SDR image → Ultra HDR JPEG')
+    ap = argparse.ArgumentParser(prog=Path(sys.argv[0]).name,
+                                 description='SDR image -> Ultra HDR JPEG')
     ap.add_argument('input', type=Path)
     ap.add_argument('--peak-nits',       type=float, default=1000.0)
     ap.add_argument('--sdr-white',       type=float, default=203.0)
