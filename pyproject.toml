@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyultrahdr"
+version = "0.1.0"
+description = "Pure-Python SDR to Ultra HDR JPEG gain map converter"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "hanfeisun"}]
+dependencies = ["numpy>=1.20", "Pillow>=9.0"]
+keywords = ["hdr", "ultrahdr", "gain-map", "jpeg", "image-converter"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+
+[project.urls]
+Homepage = "https://github.com/hanfeisun/pyultrahdr"
+Repository = "https://github.com/hanfeisun/pyultrahdr"
+Issues = "https://github.com/hanfeisun/pyultrahdr/issues"
+
+[project.scripts]
+pyultrahdr = "sdr_to_hdr:main"
+
+[tool.setuptools]
+py-modules = ["pyultrahdr", "sdr_to_hdr"]

@@ -4,7 +4,7 @@
 
 | Before — plain SDR | Gain map | After — Ultra HDR JPEG |
 |---|---|---|
-| ![SDR](docs/demo_sdr.jpg) | ![Gain map](docs/demo_gainmap.jpg) | ![Ultra HDR](docs/demo_ultrahdr.jpg) |
+| ![SDR](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_sdr.jpg) | ![Gain map](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_gainmap.jpg) | ![Ultra HDR](https://raw.githubusercontent.com/hanfeisun/pyultrahdr/main/docs/demo_ultrahdr.jpg) |
 
 > **Open this README in Chrome on an HDR display** (Windows 11 24H2 / macOS Sonoma / Android 14+ / iOS 17.4+) to see the right image light up. On an SDR display the two look identical — that's the point: Ultra HDR degrades gracefully everywhere and pops wherever HDR is available.
 
@@ -33,6 +33,19 @@ Google's [Ultra HDR format](https://developer.android.com/media/platform/hdr-ima
 - **Single-file script** — copy, paste, ship.
 
 ## Install
+
+Requires Python 3.9 or later.
+
+```bash
+pip install pyultrahdr
+pyultrahdr your_photo.jpg
+```
+
+The same command is available as `python -m pyultrahdr`. For Python pipelines,
+import the conversion helpers from `pyultrahdr` (for example,
+`from pyultrahdr import build_ultra_hdr, compute_gain_map, inverse_tone_map`).
+
+To use the standalone script instead:
 
 ```bash
 pip install numpy pillow
@@ -123,7 +136,7 @@ An HDR-aware decoder reads the gain map, applies it per-pixel (in log2-linear sp
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/hanfeisun/pyultrahdr/blob/main/LICENSE).
 
 ## References
 
